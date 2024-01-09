@@ -13,7 +13,7 @@ class Song extends Model
         'title',
         'album',
         'genre',
-        'producer'
+        'artist'
     ];
 
     protected $dates = [
