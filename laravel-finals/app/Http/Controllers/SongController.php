@@ -20,7 +20,7 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-        return Song::create($request->all());
+        Song::create($request->all());
 
         return response()->json(['info' => 'successfully recorded a song.']);
     }
@@ -38,10 +38,17 @@ class SongController extends Controller
      */
     public function update(Request $request, Song $song)
     {
-        $song->$request->title;
-        $song->$request->album;
-        $song->$request->artist;
-        $song->$request->genre;
+        request()->validate([
+            'title' => 'required|min:3|max:54',
+            'album' => 'required|min:3|max:54',
+            'artist' => 'required|min:3|max:124',
+            'genre' => 'required|min:3|max:54',
+        ]);
+
+        $song->title = $request->title;
+        $song->album = $request->album;
+        $song->artist = $request->artist;
+        $song->genre = $request->genre;
         $song->save();
 
         return $song;

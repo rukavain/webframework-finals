@@ -23,4 +23,4 @@ Route::get('/songs', [SongController::class, 'index']); //returns all songs
 Route::post('/songs', [SongController::class, 'store'])->name('create.song'); //store a song
 Route::put('songs/{song}', [SongController::class, 'update'])->name('edit.song'); //update/edit a song
 Route::delete('/songs/{song}', [SongController::class, 'destroy'])->name('delete.song'); //delete a song
-Route::get('/songs{song}', [SongController::class, 'show'])->name('show.song'); // return a single song
+Route::get('/songs/{song}', [SongController::class, 'show'])->name('show.song'); // return a single song
