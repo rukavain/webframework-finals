@@ -20,6 +20,13 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|min:3|max:54',
+            'album' => 'required|min:3|max:54',
+            'artist' => 'required|min:3|max:124',
+            'genre' => 'required|min:3|max:54',
+        ]);
+
         Song::create($request->all());
 
         return response()->json(['info' => 'successfully recorded a song.']);
