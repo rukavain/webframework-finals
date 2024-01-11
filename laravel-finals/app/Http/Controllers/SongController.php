@@ -58,8 +58,6 @@ class SongController extends Controller
         $song->genre = $request->genre;
         $song->save();
 
-        return $song;
-
         return response()->json(['info' => 'successfully updated a song.']);
     }
 
